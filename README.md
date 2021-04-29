@@ -1,1 +1,1 @@
-# openmls.github.io
+[https://openmls.tech](https://openmls.tech)

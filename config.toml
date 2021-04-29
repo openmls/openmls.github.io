@@ -1,0 +1,9 @@
+baseURL = "https://openmls.tech"
+languageCode = "en-us"
+title = "OpenMLS"
+theme = "hugo-theme-minos"
+paginate = 10
+
+[params]
+    smartToc = true
+    katex = true
