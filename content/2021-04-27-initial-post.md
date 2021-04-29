@@ -3,8 +3,6 @@ title: "OpenMLS is growing!"
 date: 2021-04-29
 ---
 
-Check out the [repository](https://github.com/openmls/openmls) while we are working on getting more content on here.
-
 We’re pleased to announce that we are engaging with [INRIA Paris](https://prosecco.gforge.inria.fr/) to cooperate on OpenMLS.
 
 Professor Karthikeyan Bhargavan’s Prosecco team at INRIA decisively contributed to the formally verified cryptographic library [HACL*](https://github.com/project-everest/hacl-star/) (along with Microsoft Research and CMU) and was deeply involved in the design, analysis and standardization of TLS 1.3. More recently, the team published [TreeKEM](https://hal.inria.fr/hal-02425247) – the core algorithm of MLS.
