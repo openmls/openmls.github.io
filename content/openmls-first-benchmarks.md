@@ -1,17 +1,12 @@
 ---
 title: "OpenMLS Performance"
 date: 2021-05-18
-tags: ["mls", "openmls"]
+tags: ["mls", "openmls", "performance"]
 toc: true
 ---
 
-The Messaging Layer Security ([MLS](https://datatracker.ietf.org/wg/mls/about/)) protocol is an [IETF proposal](https://datatracker.ietf.org/doc/draft-ietf-mls-protocol/) for group key establishment
-and message protection.
-[OpenMLS](https://github.com/openmls/openmls/) is a Rust implementation of the MLS protocol in its current state ([draft 11](https://datatracker.ietf.org/doc/html/draft-ietf-mls-protocol-11) as of the point of writing this) that is being implemented by [Raphael](https://twitter.com/raphaelrobert), [Konrad](https://kkohbrok.github.io/) and myself.
-For more general information on MLS I refer to the [spec](https://messaginglayersecurity.rocks/mls-protocol/draft-ietf-mls-protocol.html) and [other](https://wire.com/en/blog/mls-future-of-messaging/) blog [posts](https://wickr.com/the-messaging-layer-security-protocol/).
-This blog post is only about MLS, and in particular OpenMLS, performance.
+In this blog post, I explore how MLS' aspiration [to be scalable](https://datatracker.ietf.org/doc/charter-ietf-mls/) manifests itself in OpenMLS.
 
-One goal of MLS is that it [is supposed to be scalable](https://datatracker.ietf.org/doc/charter-ietf-mls/).
 The charter in particular claims the following:
 
 > Resource requirements have good scaling in the size of the group (preferably sub-linear)
