@@ -3,6 +3,8 @@ title: "OpenMLS Performance"
 date: 2021-05-18
 tags: ["mls", "openmls", "performance"]
 toc: true
+author: "Franziskus Kiefer"
+author_link: "https://www.franziskuskiefer.de"
 ---
 
 In this blog post, I explore how MLS' aspiration [to be scalable](https://datatracker.ietf.org/doc/charter-ietf-mls/) manifests itself in OpenMLS.
