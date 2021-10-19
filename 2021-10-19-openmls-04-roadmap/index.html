@@ -1,0 +1,121 @@
+<!doctype html><html>
+<head>
+<title>OpenMLS v0.4 Roadmap // OpenMLS</title>
+<meta charset=utf-8>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta property="og:title" content="OpenMLS v0.4 Roadmap">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en">
+<meta property="og:url" content="https://openmls.tech/2021-10-19-openmls-04-roadmap/">
+<link rel="shortcut icon" href=/favicon.ico>
+<link href=https://openmls.tech/webfonts/ptserif/main.css rel=stylesheet type=text/css>
+<link href=https://openmls.tech/webfonts/source-code-pro/main.css rel=stylesheet type=text/css>
+<link rel=stylesheet href=https://openmls.tech/css/style.css>
+<meta name=generator content="Hugo 0.88.1">
+</head>
+<body>
+<div id=container>
+<header id=header>
+<div id=header-outer class=outer>
+<div id=header-inner class=inner>
+<a id=main-nav-toggle class=nav-icon href=javascript:;></a>
+<a id=logo class=logo-text href=https://openmls.tech/>OpenMLS</a>
+<nav id=main-nav>
+<a class=main-nav-link href=https://github.com/openmls/openmls>Github</a>
+</nav>
+<nav id=sub-nav>
+<div id=search-form-wrap>
+</div>
+</nav>
+</div>
+</div>
+</header>
+<section id=main class=outer>
+<article class="article article-type-post" itemscope itemprop=blogPost>
+<div class=article-inner>
+<header class=article-header>
+<h1 class=article-title itemprop=name>OpenMLS v0.4 Roadmap</h1>
+</header>
+<div class=article-meta>
+<a href=/2021-10-19-openmls-04-roadmap/ class=article-date>
+<time datetime=2021-10-19T00:00:00.000+00:00 itemprop=datePublished>2021-10-19</time>
+</a>
+<pre style=color:#939393> by <a href=https://www.franziskuskiefer.de> Franziskus Kiefer </a></pre>
+</div>
+<div class=article-entry itemprop=articleBody>
+<p>It&rsquo;s time for another update on OpenMLS because many things are happening behind the scenes.</p>
+<p>Today we are excited to announce a public roadmap for OpenMLS v0.4. This will not even be close to a v1.0 release because the <a href=https://datatracker.ietf.org/doc/draft-ietf-mls-protocol/>spec</a> is still not finished and it&rsquo;s unclear how the library will be used. Nonetheless will v0.4 be a significant release with a mostly stable API and most functionality being implemented.</p>
+<p>Over the next five months we will fix the most pressing issues and make OpenMLS a usable MLS library for consumers to use. We are well aware that there is almost no experience with using MLS in a messaging product. (Cisco&rsquo;s Webex is rolling out MLS for <a href=https://www.btconferencing.com/downloads-library/services/webex-versions/t41/Webex_Latest_Channel_Customer_Monthly_Update_41.7.pdf>end-to-end encrypted video calls</a> as part of their <a href=https://www.cisco.com/c/en/us/solutions/collateral/collaboration/white-paper-c11-744553.html>zero-trust initiative</a> right now.) The goal is therefore to offer a mostly stable API and complete feature set for consumers to start using it. However, we expect a significant feedback cycle to improve the APIs to make OpenMLS better suited for applications.</p>
+<h1 id=-the-road-to-v04>🛣 The road to v0.4</h1>
+<p>There are a number of high level goals we are tackling over the coming months.</p>
+<p>You can follow the road to v0.4 on the <a href=https://github.com/openmls/openmls/milestone/3>Github milestone</a>.</p>
+<h2 id=-validation--authorization>💌 Validation & Authorization</h2>
+<p>This milestone tackles two issues that aren&rsquo;t very well specified in the MLS specification; Validation and Authorization.</p>
+<p>Validation ensures that group and application messages are &ldquo;valid&rdquo;. This includes a number of steps:</p>
+<ul>
+<li>Syntax validation to ensure that messages are well formed.</li>
+<li>Semantic validation makes sure that messages are valid in a
+given context. This includes signature verification, epoch number checks, etc.</li>
+<li>Group policy validation establishes that the group policy, defining things like handshake type etc, is being adhered to.</li>
+<li>The authentication service and policy validation checks to see whether syntactically and semantically correct messages should be adopted or dropped by answering questions such as: Is a member allowed to add another member? Is a member allowed to remove another member?</li>
+</ul>
+<h2 id=-supported-platforms>⚙️ Supported Platforms</h2>
+<p>The goal of OpenMLS is to support all relevant architectures and operating systems. This includes the major operating systems (Windows, macOS, Linux, Android, iOS) on all commonly used hardware architectures (x86, x86_64, arm64, arm32). Note that arm32 is a legacy platform and only supported on a best effort basis for old Android devices. Arm64 will be supported for all operating systems except Windows.</p>
+<p>In addition OpenMLS can be used from JavaScript as a WebAssembly module. We don&rsquo;t have a JS API yet (<a href=https://github.com/openmls/openmls/issues/487>tracking issue #487</a>). If you are interested in contributing, this would be a great starting point.</p>
+<h2 id=-documentation--apis>📜 Documentation & APIs</h2>
+<p>All high-level APIs that are interesting for consumers will be well documented and published.</p>
+<p>Starting with v0.4 OpenMLS will adhere to <a href=https://semver.org/>semantic versioning</a> guidelines and increase the minor version number on breaking changes. Note however that OpenMLS will still be pre-1.0 and see a significant number of changes.</p>
+<h3 id=-crypto-backends>🔐 Crypto backends</h3>
+<p>OpenMLS does not implement its own cryptographic primitives but uses other established libraries instead. In addition, MLS uses <a href=https://datatracker.ietf.org/doc/draft-irtf-cfrg-hpke/>HPKE</a> for most of its asymmetric cryptography.</p>
+<p>To allow flexible use cases OpenMLS will support the possibility for consumers to bring their own cryptographic primitives, random number generators, as well as a storage mechanisms for long term keys by implementing the respective trait.</p>
+<h2 id=-feature-complete>👏🏻 Feature Complete</h2>
+<p>OpenMLS will support all features described in <a href=https://www.ietf.org/archive/id/draft-ietf-mls-protocol-12.html>draft-12</a>. At this point we expect draft-12 to be the last draft before the <a href="https://www.ietf.org/about/glossary/?query=wglc">WGLC</a> such that the features implemented in v0.4 should be equivalent or very close to the final RFC.</p>
+</div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin=anonymous></script>
+<script>(function(){var a=$('#TableOfContents'),b;if(a.length>0){b=$(window);function c(){var e=b.scrollTop(),f=$('.article-entry h1, .article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6'),c="",d;if(f.each(function(b,a){a=$(a),a.offset().top-10<=e&&(c=a.attr('id'))}),d=a.find('a.active'),d.length==1&&d.eq(0).attr('href')=='#'+c)return!0;d.each(function(b,a){$(a).removeClass('active').siblings('ul').hide()}),a.find('a[href="#'+c+'"]').parentsUntil('#TableOfContents').each(function(b,a){$(a).children('a').addClass('active').siblings('ul').show()})}b.on('scroll',c),$(document).ready(function(){a.find('a').parent('li').find('ul').hide(),c(),document.getElementsByClassName('article-toc')[0].style.display=''})}})()</script>
+<footer class=article-footer>
+<ul class=article-tag-list>
+<li class=article-tag-list-item>
+<a class=article-tag-list-link href=https://openmls.tech/tags/mls>mls
+</a>
+</li>
+<li class=article-tag-list-item>
+<a class=article-tag-list-link href=https://openmls.tech/tags/openmls>openmls
+</a>
+</li>
+<li class=article-tag-list-item>
+<a class=article-tag-list-link href=https://openmls.tech/tags/roadmap>roadmap
+</a>
+</li>
+</ul>
+</footer>
+</div>
+<nav id=article-nav>
+<a href=/openmls-first-benchmarks/ id=article-nav-older class=article-nav-link-wrap>
+<div class=article-nav-title>OpenMLS Performance&nbsp;<span>></span></div>
+</a>
+</nav>
+</article>
+</section>
+<footer id=footer>
+<div class=outer>
+<div id=footer-info class=inner>
+&copy; 2021 OpenMLS
+<br>
+Powered by <a href=https://gohugo.io target=_blank>Hugo</a> with theme <a href=https://github.com/carsonip/hugo-theme-minos target=_blank>Minos</a>
+</div>
+</div>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin=anonymous>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin=anonymous></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css integrity=sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0 crossorigin=anonymous>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js integrity=sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1 crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin=anonymous></script>
+<script>renderMathInElement(document.body)</script>
+<script>document.getElementById('main-nav-toggle').addEventListener('click',function(){var a=document.getElementById('header');a.classList.contains('mobile-on')?a.classList.remove('mobile-on'):a.classList.add('mobile-on')})</script>
+</footer>
+</div>
+</body>
+</html>
