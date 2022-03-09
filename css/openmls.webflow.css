@@ -56,7 +56,7 @@ h2 {
   flex-direction: row;
   font-family: Inter, sans-serif;
   color: #fff;
-  font-size: 130px;
+  font-size: 120px;
   line-height: 96px;
   font-weight: 500;
   letter-spacing: -0.12ch;
@@ -85,14 +85,18 @@ h2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 100px;
+  margin-top: 0px;
   margin-bottom: 100px;
-  padding: 15px 20px;
+  padding: 60px 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -127,9 +131,7 @@ h2 {
 
 .text-block {
   max-width: 450px;
-  margin-top: 0px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0px auto 100px;
   font-family: Inter, sans-serif;
   color: #000;
   font-size: 16px;
@@ -159,6 +161,15 @@ h2 {
   font-weight: 600;
   text-align: center;
   white-space: nowrap;
+}
+
+.button.light-button.feature-button {
+  margin-right: 40px;
+  margin-left: 80px;
+}
+
+.button.light-button.contact-button {
+  margin-right: 180px;
 }
 
 .text-span {
@@ -229,6 +240,8 @@ h2 {
 
 .item-image {
   width: 50px;
+  margin-top: 0px;
+  margin-bottom: auto;
   opacity: 0.22;
 }
 
@@ -260,20 +273,19 @@ h2 {
 
 .feature-heading {
   width: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0px 60px 0px 40px;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02ch;
   white-space: nowrap;
 }
 
 .feature-heading.contact-heading {
-  margin-right: 100px;
+  margin-left: 180px;
   font-size: 24px;
 }
 
@@ -298,8 +310,7 @@ h2 {
 }
 
 .feature-text-block {
-  margin-right: 40px;
-  margin-left: 40px;
+  max-width: 450px;
   line-height: 1.4;
   letter-spacing: -0.02ch;
 }
@@ -312,6 +323,7 @@ h2 {
 
 .item-heading {
   margin-top: 0px;
+  margin-bottom: 40px;
   font-weight: 600;
   letter-spacing: -0.02ch;
 }
@@ -398,8 +410,13 @@ h2 {
     margin-bottom: 40px;
   }
 
-  .button {
-    margin-top: 20px;
+  .button.light-button.feature-button {
+    margin-right: 20px;
+    margin-left: 40px;
+  }
+
+  .button.light-button.contact-button {
+    margin-right: 100px;
   }
 
   .grid {
@@ -427,7 +444,14 @@ h2 {
 
   .feature-heading {
     width: auto;
+    margin-right: 40px;
+    margin-left: 20px;
+    font-size: 16px;
     white-space: nowrap;
+  }
+
+  .feature-heading.contact-heading {
+    margin-left: 100px;
   }
 
   .contactdiv {
@@ -455,10 +479,10 @@ h2 {
   }
 
   .feature-div {
-    margin-top: 40px;
+    margin-top: 0px;
     margin-bottom: 40px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -491,6 +515,16 @@ h2 {
     margin-bottom: 0px;
   }
 
+  .button.light-button.feature-button {
+    margin-left: 0px;
+  }
+
+  .button.light-button.contact-button {
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+  }
+
   .heading-2 {
     padding-right: 0px;
     font-size: 24px;
@@ -516,15 +550,14 @@ h2 {
 
   .feature-heading {
     margin-top: 10px;
+    margin-left: 0px;
     -webkit-align-self: flex-start;
     -ms-flex-item-align: start;
     align-self: flex-start;
   }
 
   .feature-heading.contact-heading {
-    margin-right: auto;
-    margin-bottom: 20px;
-    margin-left: auto;
+    margin: 40px auto 20px;
   }
 
   .div-block-4 {
@@ -546,7 +579,7 @@ h2 {
   }
 
   .feature-text-block {
-    margin-top: 10px;
+    margin-top: 20px;
     margin-right: 0px;
     margin-left: 0px;
   }
@@ -625,7 +658,7 @@ h2 {
   }
 
   .feature-div {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 40px;
   }
 
@@ -662,6 +695,10 @@ h2 {
     width: 100%;
     margin-bottom: 0px;
     border-style: none;
+  }
+
+  .button.light-button.contact-button {
+    margin-bottom: 0px;
   }
 
   .heading-2 {
@@ -711,11 +748,15 @@ h2 {
   }
 
   .feature-heading {
-    width: auto;
+    margin-right: 0px;
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
+  }
+
+  .feature-heading.contact-heading {
+    margin-top: 20px;
   }
 
   .div-block-4.contact-div {
@@ -746,6 +787,7 @@ h2 {
   }
 
   .image {
+    max-width: 70vw;
     margin-right: auto;
     margin-left: auto;
   }
