@@ -14,6 +14,15 @@ h2 {
   font-weight: 700;
 }
 
+a {
+  border-bottom: 2px dotted #000;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  background-clip: border-box;
+  -webkit-text-fill-color: inherit;
+}
+
 .body {
   margin-bottom: 0px;
   padding-bottom: 40px;
@@ -381,6 +390,11 @@ h2 {
 .image {
   margin-right: 20px;
   margin-left: 140px;
+}
+
+.section-2 {
+  border-bottom-width: 1px;
+  border-bottom-color: #000;
 }
 
 @media screen and (max-width: 991px) {
